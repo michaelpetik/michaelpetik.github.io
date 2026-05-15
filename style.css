@@ -1,0 +1,92 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+body {
+  font-family: Verdana;
+  background-repeat: no-repeat;
+  background-image: url("owl2.png");  
+  background-size: cover; 
+  width: 100vw;
+  height: 100vh;
+  background-position: center, center;
+  overflow: hidden;
+}
+
+@media (min-width:320px)  { 
+  /* smartphones, iPhone, portrait 480x320 phones */ 
+  .animated-rainbow-2 {
+    font-size: 10vw;
+    font-family: Arial Black, Gadget, sans-serif;
+    animation: rainbow-color-change 3s linear infinite alternate;
+    display: flex;
+    justify-content: center;
+    text-align : center;
+  }
+}
+@media (min-width:481px)  { 
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+  .animated-rainbow-2 {
+    font-size: 9vw;
+    font-family: Arial Black, Gadget, sans-serif;
+    animation: rainbow-color-change 3s linear infinite alternate;
+    display: flex;
+    justify-content: center;
+    text-align : center;
+  }
+}
+@media (min-width:641px)  { 
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+    .animated-rainbow-2 {
+    font-size: 7vw;
+    font-family: "Arial Black", Gadget, sans-serif;
+    animation: rainbow-color-change 3s linear infinite alternate;
+    display: flex;
+    justify-content: center;
+    text-align : center;
+  }
+}
+@media (min-width:961px)  {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+    .animated-rainbow-2 {
+    font-size: 12vw;
+    font-family: Arial Black, Gadget, sans-serif;
+    animation: rainbow-color-change 3s linear infinite alternate;
+    display: flex;
+    justify-content: center;
+    text-align : center;
+  }
+}
+@media (min-width:1025px) { 
+  /* big landscape tablets, laptops, and desktops */ 
+    .animated-rainbow-2 {
+    font-size: 5vw;
+    font-family: Arial Black, Gadget, sans-serif;
+    animation: rainbow-color-change 3s linear infinite alternate;
+    display: flex;
+    justify-content: center;
+    text-align : center;
+  }
+}
+@media (min-width:1281px) { 
+  /* hi-res laptops and desktops */ 
+  .animated-rainbow-2 {
+    font-size: 4vw;
+    font-family: "Arial Black", Gadget, sans-serif;
+    animation: rainbow-color-change 3s linear infinite alternate;
+    display: flex;
+    justify-content: center;
+    text-align : center;
+  }
+}
+
+
+@keyframes rainbow-color-change {
+    0%, 100% { color: #ff0000; } /* Red */
+    14% { color: #ff8b00; } /* Orange */
+    28% { color: #e8ff00; } /* Yellow */
+    42% { color: #5dff00; } /* Green */
+    56% { color: #00b9ff; } /* Blue */
+    70% { color: #5d00ff; } /* Indigo */
+    84% { color: #e800ff; } /* Violet */
+}
