@@ -2,84 +2,62 @@
    HTML content. To learn how to do something, just try searching Google for questions like
    "how to change link color." */
 
+/* The look: 1-bit black and white like the owl, hard pixel edges, and the rainbow as the only color.
+   The VGA font is drawn on a 16px grid, so it stays crisp at 16, 32, 48 and 64px. Stick to those sizes. */
+
+@font-face {
+  font-family: 'PxPlus IBM VGA9';
+  src: url('styles/pxplus_ibm_vga9-webfont.woff2') format('woff2'),
+       url('styles/pxplus_ibm_vga9-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* Opacity of the black panel behind the text: 1 is solid black, 0 is fully see-through. */
+  --panel-opacity: 0.9;
+
+  /* Width of the checkerboard frame around each text box. */
+  --frame: 16px;
+
+  /* Atari 8-bit hue order ($1-$F), with the $x6 colors pushed halfway toward full saturation. */
+  --rainbow-strip: linear-gradient(90deg,
+    #CD9A24 0 32px, #D4801F 0 64px, #DF5625 0 96px, #DE2E2E 0 128px, #D72DB0 0 160px,
+    #8B2DDA 0 192px, #492EDE 0 224px, #293DDE 0 256px, #295EDD 0 288px, #288AD5 0 320px,
+    #2ACC90 0 352px, #2FCD2F 0 384px, #68CA2A 0 416px, #AFC229 0 448px, #CDCD1D 0 480px);
+}
+
 body {
-  font-family: Verdana;
+  font-family: 'PxPlus IBM VGA9', monospace;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+  -webkit-font-smoothing: none;
   background-repeat: no-repeat;
-  background-image: url("owl2.png");  
-  background-size: cover; 
+  background-image: url("owl2.png");
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   background-position: center, center;
   overflow: hidden;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width:320px)  { 
-  /* smartphones, iPhone, portrait 480x320 phones */ 
-  .animated-rainbow-2 {
-    font-size: 10vw;
-    font-family: Arial Black, Gadget, sans-serif;
-    animation: rainbow-color-change 3s linear infinite alternate;
-    display: flex;
-    justify-content: center;
-    text-align : center;
-  }
+/* The header. The colors jump instead of fading. */
+.animated-rainbow-2 {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 8px 16px;
+  background: #000;
+  border-bottom: 2px solid #fff;
+  font-size: 32px;
+  line-height: 40px;
+  animation: rainbow-color-change 3s steps(1, end) infinite alternate;
 }
-@media (min-width:481px)  { 
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
-  .animated-rainbow-2 {
-    font-size: 9vw;
-    font-family: Arial Black, Gadget, sans-serif;
-    animation: rainbow-color-change 3s linear infinite alternate;
-    display: flex;
-    justify-content: center;
-    text-align : center;
-  }
-}
-@media (min-width:641px)  { 
-  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
-    .animated-rainbow-2 {
-    font-size: 7vw;
-    font-family: "Arial Black", Gadget, sans-serif;
-    animation: rainbow-color-change 3s linear infinite alternate;
-    display: flex;
-    justify-content: center;
-    text-align : center;
-  }
-}
-@media (min-width:961px)  {
-  /* tablet, landscape iPad, lo-res laptops ands desktops */ 
-    .animated-rainbow-2 {
-    font-size: 12vw;
-    font-family: Arial Black, Gadget, sans-serif;
-    animation: rainbow-color-change 3s linear infinite alternate;
-    display: flex;
-    justify-content: center;
-    text-align : center;
-  }
-}
-@media (min-width:1025px) { 
-  /* big landscape tablets, laptops, and desktops */ 
-    .animated-rainbow-2 {
-    font-size: 5vw;
-    font-family: Arial Black, Gadget, sans-serif;
-    animation: rainbow-color-change 3s linear infinite alternate;
-    display: flex;
-    justify-content: center;
-    text-align : center;
-  }
-}
-@media (min-width:1281px) { 
-  /* hi-res laptops and desktops */ 
-  .animated-rainbow-2 {
-    font-size: 4vw;
-    font-family: "Arial Black", Gadget, sans-serif;
-    animation: rainbow-color-change 3s linear infinite alternate;
-    display: flex;
-    justify-content: center;
-    text-align : center;
-  }
-}
-
 
 @keyframes rainbow-color-change {
     0%, 100% { color: #ff0000; } /* Red */
@@ -89,4 +67,237 @@ body {
     56% { color: #00b9ff; } /* Blue */
     70% { color: #5d00ff; } /* Indigo */
     84% { color: #e800ff; } /* Violet */
+}
+
+@keyframes rainbow-march {
+  to { background-position-x: 480px; }
+}
+
+/* The scrolling center window. The page itself never scrolls, so the background stays put. */
+.window {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  box-sizing: border-box;
+  width: min(850px, 92vw);
+  margin: 16px auto;
+  padding: var(--frame);
+  border: 2px solid #fff;
+  outline: 2px solid #000;
+}
+
+.window::-webkit-scrollbar {
+  width: 16px;
+}
+
+.window::-webkit-scrollbar-track {
+  background: #000;
+}
+
+.window::-webkit-scrollbar-thumb {
+  background: #fff;
+  border: 2px solid #000;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .window {
+    scrollbar-color: #fff #000;
+  }
+}
+
+/* A text box inside the window. Add data-title="something" for a label on its top edge. */
+.box {
+  position: relative;
+  box-sizing: border-box;
+  padding: 32px;
+  border: 2px solid #fff;
+  background: rgb(0 0 0 / var(--panel-opacity));
+  color: #fff;
+}
+
+.box + .box {
+  margin-top: 16px;
+}
+
+/* The checkerboard frame. The center is cut out so the owl shows through the panel. */
+.box::after {
+  content: "";
+  position: absolute;
+  inset: calc(-2px - var(--frame));
+  background: repeating-conic-gradient(#000 0 25%, #fff 0 50%) 0 0 / 4px 4px;
+  clip-path: polygon(evenodd,
+    0 0, 100% 0, 100% 100%, 0 100%, 0 0,
+    var(--frame) var(--frame),
+    calc(100% - var(--frame)) var(--frame),
+    calc(100% - var(--frame)) calc(100% - var(--frame)),
+    var(--frame) calc(100% - var(--frame)),
+    var(--frame) var(--frame));
+}
+
+.box[data-title]::before {
+  content: attr(data-title);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  padding: 0 8px;
+  background: #fff;
+  color: #000;
+}
+
+/* Resume. This font has no real bold or italic, so emphasis uses gray and inverted blocks instead. */
+.resume .title {
+  font-size: 64px;
+  line-height: 72px;
+  text-align: center;
+}
+
+.resume h1 {
+  display: inline;
+  font-size: inherit;
+  font-weight: normal;
+}
+
+/* The headshot icon, sitting right after the name. */
+.resume .title img {
+  --headshot-size: 128px;
+  width: var(--headshot-size);
+  height: var(--headshot-size);
+  /* Lines the picture's center up with the center of the capital letters, at any size. */
+  vertical-align: calc(0.3125em - var(--headshot-size) / 2 - 2px);
+  border: 2px solid #fff;
+  image-rendering: auto;
+}
+
+.resume .title::after {
+  content: "";
+  display: block;
+  height: 8px;
+  margin-top: 16px;
+  background: var(--rainbow-strip) 0 0 / 480px 8px repeat-x;
+  animation: rainbow-march 6.4s steps(15, end) infinite;
+}
+
+.resume .contact {
+  margin: 16px 0 0;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.resume a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+
+.resume a:hover,
+.resume a:focus-visible {
+  background: #fff;
+  color: #000;
+  outline: none;
+  text-decoration: none;
+}
+
+.resume h2 {
+  margin: 32px 0 16px;
+  padding: 0 8px;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: normal;
+  background: #fff;
+  color: #000;
+}
+
+.resume .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 16px;
+}
+
+.resume .employer {
+  margin-top: 20px;
+}
+
+.resume h2 + .employer {
+  margin-top: 0;
+}
+
+.resume .org {
+  text-transform: uppercase;
+}
+
+.resume em {
+  font-style: normal;
+  color: #aaa;
+}
+
+.resume ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  list-style-type: "■ ";
+}
+
+.resume ul ul {
+  margin-top: 4px;
+  padding-left: 27px;
+  list-style-type: "- ";
+}
+
+.resume li {
+  margin-bottom: 4px;
+}
+
+.resume strong {
+  font-weight: normal;
+  padding: 0 4px;
+  background: #fff;
+  color: #000;
+}
+
+@media (min-width: 720px) {
+  .animated-rainbow-2 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .animated-rainbow-2 {
+    font-size: 64px;
+    line-height: 72px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --frame: 8px;
+  }
+
+  .window {
+    margin: 8px auto;
+  }
+
+  .box {
+    padding: 24px 12px 12px;
+  }
+
+  .resume .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .resume .title img {
+    --headshot-size: 28px;
+  }
+
+  .resume h2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-rainbow-2,
+  .resume .title::after {
+    animation: none;
+  }
 }
