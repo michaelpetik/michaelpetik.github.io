@@ -15,7 +15,7 @@
 
 :root {
   /* Opacity of the black panel behind the text: 1 is solid black, 0 is fully see-through. */
-  --panel-opacity: 0.9;
+  --panel-opacity: 0.85;
 
   /* Width of the checkerboard frame around each text box. */
   --frame: 16px;
