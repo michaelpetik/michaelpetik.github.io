@@ -27,6 +27,10 @@
     #2ACC90 0 352px, #2FCD2F 0 384px, #68CA2A 0 416px, #AFC229 0 448px, #CDCD1D 0 480px);
 }
 
+html {
+  overscroll-behavior: none;
+}
+
 body {
   font-family: 'PxPlus IBM VGA9', monospace;
   font-size: 16px;
@@ -80,6 +84,7 @@ body {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: none; /* No rubber-band bounce at the ends of the scroll. */
   box-sizing: border-box;
   width: min(850px, 92vw);
   margin: 16px auto;
