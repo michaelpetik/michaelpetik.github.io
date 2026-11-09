@@ -36,8 +36,10 @@ body {
   background-repeat: no-repeat;
   background-image: url("owl2.png");
   background-size: cover;
+  -webkit-text-size-adjust: 100%;
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* Keeps the window clear of the toolbar in mobile browsers. */
   background-position: center, center;
   overflow: hidden;
   margin: 0;
@@ -269,15 +271,37 @@ body {
 
 @media (max-width: 640px) {
   :root {
-    --frame: 8px;
+    --frame: 4px;
   }
 
   .window {
-    margin: 8px auto;
+    width: calc(100vw - 8px);
+    margin: 4px auto;
   }
 
   .box {
-    padding: 24px 12px 12px;
+    padding: 16px 10px 10px;
+  }
+
+  /* Phone screens are dense enough that the pixel font stays sharp at this size. */
+  .resume {
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  .resume .contact {
+    font-size: 12px;
+  }
+
+  .resume ul,
+  .resume ul ul {
+    padding-left: 15px;
+  }
+
+  .resume strong {
+    display: block;
+    width: fit-content;
+    margin-bottom: 2px;
   }
 
   .resume .title {
