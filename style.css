@@ -228,6 +228,11 @@ body {
   margin-top: 0;
 }
 
+/* A second role at the same employer. */
+.resume .role {
+  margin-top: 12px;
+}
+
 .resume .org {
   text-transform: uppercase;
 }

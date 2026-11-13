@@ -21,52 +21,55 @@
     <!-- <h2>About</h2>
     <body>Hello! </body> -->
 
+    <h2>Summary</h2>
+    <p>Engineer with 10+ years in DevOps, SRE, and Platform Engineering who drives large-scale initiatives from inception to delivery. At SurveyMonkey, authored standards for migrating apps to Kubernetes, then embedded with development teams to lead them through cutover. Designed and built the complementary local development standard from scratch, leading engineers through roadmap and delivery, and built AI skills that automated app onboarding end to end. At Endava, improved scalability and fault tolerance for clients with critical uptime requirements, responded to production incidents, and diagnosed delivery bottlenecks. Sets technical direction, builds consensus across teams, and mentors engineers.</p>
+
     <h2>Professional Experience</h2>
 
     <div class="row employer"><span class="org">SurveyMonkey</span><em>Remote</em></div>
-    <div class="row"><em>Senior SRE/Cloud Engineer II</em><em>04/2022 - 11/2026</em></div>
+    <div class="row"><em>Senior Cloud Engineer II</em><em>03/2025 - 11/2026</em></div>
     <ul>
-      <li>Drove migration of 100+ containerized apps from Amazon EC2 to EKS for a platform serving millions of users
-        <ul>
-          <li>Developed migration standards to decouple app configuration from runtime hosts and to implement container performance and security best practices</li>
-          <li>Embedded with development teams to execute migration, cutover, and legacy decommissioning</li>
-        </ul>
-      </li>
-      <li>Defined, developed, and maintained org-wide Kubernetes-based local development standards to achieve continuity with remote deployment environments and improve developer experience
-        <ul>
-          <li>Led a dedicated subset of the SRE/Cloud Engineering team in project planning, Agile ceremonies, team roadmap, and IC mentorship for local dev</li>
-          <li>Established org-wide local dev guild, workshops, and support rotation to foster consensus and continuous improvement</li>
-          <li>Leveraged Claude Code to achieve rapid onboarding to standards and implement requested features</li>
-        </ul>
-      </li>
-      <li>Executed critical EKS infrastructure upgrades and performed cost and performance analyses for node pools, balancing resource needs with cost sensitivity</li>
+      <li>Defined, developed, and maintained org-wide Kubernetes-based local development standards that aligned with remote deployment environments, improving developer experience</li>
+      <li>Led a dedicated subset of the SRE/Cloud Engineering team in project planning, Agile ceremonies, team roadmap, and IC mentorship for local dev</li>
+      <li>Founded a local dev guild, workshops, and support rotation that drove continuous improvement and buy-in</li>
+      <li>Applied Claude Code agentic workflows to automate app onboarding and feature implementation, accelerating adoption of local development standards from days to hours</li>
+      <li>Executed critical EKS infrastructure upgrades and right-sized node pools through cost and performance analysis, balancing resource needs with cost sensitivity</li>
+    </ul>
+    <div class="row role"><em>Senior Site Reliability Engineer I</em><em>04/2022 - 02/2025</em></div>
+    <ul>
+      <li>Drove migration of 100+ containerized apps from Amazon EC2 to EKS for a platform serving millions of users</li>
+      <li>Developed migration standards that decoupled app configuration from runtime hosts and implemented performance and security best practices</li>
+      <li>Embedded with development teams to execute migration, cutover, and legacy decommissioning</li>
+      <li>Designed a shared Helm chart adopted as the deployment standard for all EKS apps, providing app teams with ready-made IaC that requires minimal setup and maintenance</li>
     </ul>
 
     <div class="row employer"><span class="org">Endava</span><span><em>Remote</em> / <em>Charlotte, NC</em></span></div>
-    <div class="row"><em>CloudOps/DevOps Consultant</em><em>06/2018 - 03/2022</em></div>
+    <div class="row"><em>CloudOps Consultant</em><em>07/2019 - 03/2022</em></div>
     <ul>
-      <li>Engaged long-term with a 24/7 international news media client, implementing containerization and deployment best practices to improve scalability and fault tolerance
-        <ul>
-          <li>Augmented client on-call rotations to provide incident response, remediation, and post-mortem</li>
-        </ul>
-      </li>
-      <li>Consulted with financial institution clients to identify friction points in the SDLC and within engineering orgs</li>
-      <li>Configured and maintained clients’ CI/CD pipelines end-to-end including source control (git), build automation (Jenkins), artifact storage (Artifactory, ECR), and deployment (Kubernetes, Rancher)</li>
-      <li>Leveraged CloudFormation, Terraform, and Ansible to define critical cloud and on-prem infra components</li>
+      <li>Engaged long-term with a 24/7 international news media client, implementing containerization and deployment best practices that improved scalability and fault tolerance</li>
+      <li>Led incident response, remediation, and post-mortems to restore critical services</li>
+      <li>Configured and maintained clients’ CI/CD pipelines including source control (git), build automation (Jenkins, CircleCI), artifact storage (Artifactory, ECR), and deployment (Kubernetes, Rancher)</li>
+      <li>Delivered Kubernetes training seminars for client engineers, preparing teams to migrate existing services</li>
+    </ul>
+    <div class="row role"><em>Associate DevOps Consultant</em><em>06/2018 - 06/2019</em></div>
+    <ul>
+      <li>Diagnosed software delivery and infrastructure bottlenecks for enterprise clients by interviewing engineering teams and delivering assessment reports with remediation plans</li>
+      <li>Wrote CloudFormation, Terraform, and Ansible configurations that defined critical cloud and on-prem infrastructure components</li>
     </ul>
 
     <div class="row employer"><span class="org">West Virginia University</span><em>Morgantown, WV</em></div>
     <div class="row"><em>DevOps Engineer</em><em>10/2015 - 05/2018</em></div>
     <ul>
-      <li>Built, deployed, and developed features for server infrastructure using CentOS and Ubuntu Server VMs</li>
-      <li>Automated server provisioning using Ansible, simplifying deployment processes while reducing downtime</li>
-      <li>Developed custom Linux distribution used by students, staff, and faculty for education and research</li>
-      <li>Supported on-prem servers, desktops, and networking equipment in classroom, lab, and server environments</li>
+      <li>Developed and maintained the on-prem server environment, hosting apps used by faculty for classes and internal projects</li>
+      <li>Leveraged Ansible to automate server provisioning, reducing upgrade time and ensuring consistent configuration</li>
+      <li>Maintained Nagios monitoring and centralized syslog logging, allowing for rapid incident response</li>
+      <li>Deployed APT repository to distribute faculty-developed software in classroom, lab, and server environments</li>
+      <li>Developed custom Ubuntu-based Linux distribution used by students, staff, and faculty, delivering package builds, LDAP authentication, and upgrades across three Ubuntu LTS releases</li>
     </ul>
 
     <h2>Proficiencies</h2>
     <ul>
-      <li><strong>Containers and Deploy:</strong> Amazon EKS, ECS, Helm, ArgoCD, ECR, Quay, Docker, Rancher</li>
+      <li><strong>Containers and Deploy:</strong> Kubernetes, Amazon EKS, ECS, Helm, ArgoCD, ECR, Quay, Docker, Rancher</li>
       <li><strong>Automation and IaC:</strong> Python, GitHub Actions, Jenkins, Terraform, CloudFormation, Ansible</li>
       <li><strong>Compute and Network:</strong> Linux (Debian, Ubuntu), EC2, ELB, Route53, CloudFront, VPC</li>
       <li><strong>Observability:</strong> Splunk, SignalFx, CloudWatch</li>
